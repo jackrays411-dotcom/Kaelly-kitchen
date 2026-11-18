@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#1E293B">
+  <meta name="description" content="Kaelly Kitchen Appliances supplies durable commercial kitchen equipment and stainless steel fabrication in Nairobi, Kenya. Request a quote on WhatsApp.">
+  <title>Kaelly Kitchen Appliances | Commercial Kitchen Equipment Nairobi</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+  <script>
+    tailwind.config = {
+      theme: { extend: {
+        colors: { ink: '#1E293B', amberx: '#F59E0B', steel: '#E2E8F0', whatsapp: '#25D366' },
+        fontFamily: { sans: ['DM Sans', 'sans-serif'], display: ['Manrope', 'sans-serif'] },
+        boxShadow: { soft: '0 18px 50px rgba(15,23,42,.09)' }
+      }}
+    }
+  </script>
+  <style>
+    :root { --ink:#1E293B; --amber:#F59E0B; --green:#25D366; }
+    html { scroll-behavior:smooth; scroll-padding-top:100px; }
+    body { font-family:'DM Sans',sans-serif; color:#1e293b; }
+    h1,h2,h3,.display { font-family:'Manrope',sans-serif; }
+    .hero-overlay { background:linear-gradient(90deg,rgba(15,23,42,.94) 0%,rgba(15,23,42,.78) 48%,rgba(15,23,42,.24) 100%); }
+    .product-image { transition:transform .55s ease; }
+    .product-card:hover .product-image { transform:scale(1.055); }
+    .nav-link { position:relative; }
+    .nav-link:after { content:""; position:absolute; left:0; bottom:-7px; height:2px; width:0; background:var(--amber); transition:width .25s ease; }
+    .nav-link:hover:after { width:100%; }
+    .glass { background:rgba(255,255,255,.08); border:1px solid rgba(255,255,255,.16); backdrop-filter:blur(12px); }
+    .modal-backdrop { background:rgba(2,6,23,.72); backdrop-filter:blur(5px); }
+    .no-scroll { overflow:hidden; }
+    .image-fallback { background:linear-gradient(135deg,#e2e8f0,#f8fafc); }
+    .toast { animation:toastIn .25s ease-out; }
+    @keyframes toastIn { from {opacity:0;transform:translateY(12px)} to {opacity:1;transform:translateY(0)} }
+    @media (prefers-reduced-motion:reduce) { html{scroll-behavior:auto} *,*:before,*:after{transition:none!important;animation:none!important} }
+  </style>
+</head>
+<body class="bg-white antialiased">
+  <!-- Utility bar -->
+  <div class="hidden sm:block bg-slate-950 text-slate-300 text-xs">
+    <div class="max-w-7xl mx-auto px-5 lg:px-8 py-2.5 flex items-center justify-between">
+      <p><i class="fa-solid fa-location-dot text-amberx mr-2"></i>Landhies Road, Nairobi, Kenya <span class="mx-3 text-slate-600">|</span> Commercial kitchen equipment & stainless fabrication</p>
+      <a href="tel:+254720781446" class="hover:text-white transition"><i class="fa-solid fa-phone text-amberx mr-2"></i>+254 720 781 446</a>
+    </div>
+  </div>
+
+  <!-- Main navigation -->
+  <header class="sticky top-0 z-40 bg-white/95 backdrop-blur-md border-b border-slate-200">
+    <nav class="max-w-7xl mx-auto px-5 lg:px-8 h-[76px] flex items-center justify-between">
+      <a href="#home" class="flex items-center gap-3 min-w-0" aria-label="Kaelly Kitchen Appliances home">
+        <span class="w-11 h-11 rounded-xl bg-ink text-amberx flex items-center justify-center text-xl shadow-lg"><i class="fa-solid fa-fire-burner"></i></span>
+        <span class="leading-tight min-w-0">
+          <span class="block font-display font-extrabold text-ink tracking-tight text-[17px] sm:text-[19px]">KAELLY <span class="text-amber-600">KITCHEN</span></span>
+          <span class="block text-[9px] sm:text-[10px] uppercase tracking-[.19em] text-slate-500 font-bold">Appliances & Fabrication</span>
+        </span>
+      </a>
+      <div class="hidden lg:flex items-center gap-8 text-sm font-semibold text-slate-600">
+        <a class="nav-link hover:text-ink" href="#equipment">Equipment</a>
+        <a class="nav-link hover:text-ink" href="#why-us">Why Us</a>
+        <a class="nav-link hover:text-ink" href="#hours-location">Hours & Location</a>
+      </div>
+      <div class="hidden sm:flex items-center gap-3">
+        <button onclick="openCart()" class="relative w-11 h-11 rounded-full border border-slate-200 text-ink hover:bg-slate-50" aria-label="Open cart">
+          <i class="fa-solid fa-bag-shopping"></i><span id="cart-count" class="absolute -top-1 -right-1 w-5 h-5 rounded-full bg-amberx text-ink text-[10px] font-extrabold flex items-center justify-center">0</span>
+        </button>
+        <a href="https://wa.me/254720781446?text=Hello%20Kaelly%20Kitchen%20Appliances%2C%20I%20would%20like%20to%20make%20an%20inquiry." target="_blank" rel="noopener" class="inline-flex items-center gap-2 bg-whatsapp hover:bg-green-600 text-white font-bold text-sm px-5 py-3 rounded-full transition shadow-md shadow-green-200">
+          <i class="fa-brands fa-whatsapp text-lg"></i> WhatsApp Us
+        </a>
+      </div>
+      <button id="menu-toggle" class="lg:hidden w-11 h-11 rounded-xl border border-slate-200 text-ink text-lg" aria-label="Open navigation menu" aria-expanded="false"><i class="fa-solid fa-bars"></i></button>
+    </nav>
+    <div id="mobile-menu" class="hidden lg:hidden bg-white border-t border-slate-100 px-5 py-5 shadow-lg">
+      <div class="flex flex-col gap-4 text-sm font-semibold text-slate-700">
+        <a href="#equipment" class="mobile-link">Equipment</a><a href="#why-us" class="mobile-link">Why Us</a><a href="#hours-location" class="mobile-link">Hours & Location</a>
+        <a href="tel:+254720781446" class="pt-3 border-t border-slate-100"><i class="fa-solid fa-phone text-amber-600 mr-2"></i>+254 720 781 446</a>
+        <a href="https://wa.me/254720781446?text=Hello%20Kaelly%20Kitchen%20Appliances%2C%20I%20would%20like%20to%20make%20an%20inquiry." target="_blank" rel="noopener" class="bg-whatsapp text-white text-center py-3 rounded-xl"><i class="fa-brands fa-whatsapp mr-2"></i>WhatsApp Us</a>
+      </div>
+    </div>
+  </header>
+
+  <main id="home">
+    <!-- Hero -->
+    <section class="relative min-h-[650px] lg:min-h-[690px] flex items-center overflow-hidden bg-ink">
+      <img src="kaelly1.jpg" alt="Commercial stainless steel kitchen equipment" class="absolute inset-0 w-full h-full object-cover" onerror="this.style.display='none'">
+      <div class="absolute inset-0 hero-overlay"></div>
+      <div class="relative max-w-7xl mx-auto px-5 lg:px-8 py-20 w-full">
+        <div class="max-w-3xl">
+          <div class="inline-flex items-center gap-2 rounded-full glass px-4 py-2 text-xs sm:text-sm text-slate-100 font-semibold mb-7">
+            <span class="w-2 h-2 rounded-full bg-amberx"></span> Built for professional kitchens
+          </div>
+          <p class="uppercase tracking-[.24em] text-amber-400 font-extrabold text-xs sm:text-sm mb-4">Kaelly Kitchen Appliances · Nairobi, Kenya</p>
+          <h1 class="font-display font-extrabold text-white text-4xl sm:text-5xl lg:text-6xl leading-[1.08] tracking-tight">Equip Your Commercial Kitchen <span class="text-amberx">for Success.</span></h1>
+          <p class="mt-6 text-slate-200 text-base sm:text-lg leading-8 max-w-2xl">Quality commercial kitchen equipment and stainless steel fabrication for restaurants, hotels, hospitals and caterers. Durable solutions, expert workmanship and countrywide delivery across Kenya.</p>
+          <div class="mt-9 flex flex-col sm:flex-row gap-3">
+            <a href="https://wa.me/254720781446?text=Hello%20Kaelly%20Kitchen%20Appliances%2C%20I%20would%20like%20to%20request%20a%20quote." target="_blank" rel="noopener" class="inline-flex justify-center items-center gap-3 bg-amberx hover:bg-amber-400 text-ink font-extrabold px-7 py-4 rounded-xl transition shadow-xl shadow-amber-950/20">
+              <i class="fa-brands fa-whatsapp text-xl"></i> Request Quote on WhatsApp
+            </a>
+            <a href="#equipment" class="inline-flex justify-center items-center gap-3 border border-white/40 hover:bg-white/10 text-white font-bold px-7 py-4 rounded-xl transition">View Equipment <i class="fa-solid fa-arrow-down text-amberx"></i></a>
+          </div>
+          <div class="mt-12 flex flex-wrap gap-x-8 gap-y-4 text-sm text-slate-200">
+            <span><i class="fa-solid fa-check-circle text-amberx mr-2"></i>Made for demanding use</span>
+            <span><i class="fa-solid fa-truck-fast text-amberx mr-2"></i>Delivery across Kenya</span>
+            <span><i class="fa-solid fa-screwdriver-wrench text-amberx mr-2"></i>Custom fabrication</span>
+          </div>
+        </div>
+      </div>
+      <div class="hidden xl:block absolute bottom-10 right-[7%] glass rounded-2xl p-5 text-white w-64">
+        <p class="text-amberx text-xs uppercase tracking-widest font-extrabold">Your kitchen partner</p>
+        <p class="font-display text-2xl font-bold mt-2">Built to work.<br>Made to last.</p>
+      </div>
+    </section>
+
+    <!-- Trust strip -->
+    <section class="bg-slate-50 border-b border-slate-200">
+      <div class="max-w-7xl mx-auto px-5 lg:px-8 py-5 grid grid-cols-2 md:grid-cols-4 gap-5 text-sm font-semibold text-slate-600">
+        <div class="flex items-center gap-3"><i class="fa-solid fa-industry text-amber-600 text-xl"></i><span>Commercial-grade equipment</span></div>
+        <div class="flex items-center gap-3"><i class="fa-solid fa-ruler-combined text-amber-600 text-xl"></i><span>Stainless steel fabrication</span></div>
+        <div class="flex items-center gap-3"><i class="fa-solid fa-truck text-amber-600 text-xl"></i><span>Kenya-wide delivery</span></div>
+        <div class="flex items-center gap-3"><i class="fa-solid fa-comments text-amber-600 text-xl"></i><span>Direct quote assistance</span></div>
+      </div>
+    </section>
+
+    <!-- Catalog -->
+    <section id="equipment" class="py-20 lg:py-24">
+      <div class="max-w-7xl mx-auto px-5 lg:px-8">
+        <div class="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-10">
+          <div class="max-w-2xl">
+            <p class="text-amber-700 font-extrabold uppercase tracking-[.2em] text-xs mb-3">Explore our range</p>
+            <h2 class="font-display text-3xl sm:text-4xl font-extrabold text-ink tracking-tight">Equipment for every <span class="text-amber-600">busy kitchen.</span></h2>
+            <p class="mt-4 text-slate-500 leading-7">From essential cooking equipment to made-to-fit stainless steel solutions, find practical equipment for your operation.</p>
+          </div>
+          <button onclick="openCart()" class="self-start md:self-auto inline-flex items-center gap-3 border border-slate-300 hover:border-ink px-5 py-3 rounded-xl font-bold text-sm text-ink transition"><i class="fa-solid fa-cart-shopping"></i> View enquiry cart <span id="catalog-cart-count" class="bg-amber-100 text-amber-800 rounded-full px-2 py-0.5 text-xs">0</span></button>
+        </div>
+        <div class="flex flex-wrap gap-2 mb-8" id="catalog-filters">
+          <button class="filter-btn active-filter px-4 py-2 rounded-full text-sm font-bold border" data-filter="all">All equipment</button>
+          <button class="filter-btn px-4 py-2 rounded-full text-sm font-bold border" data-filter="cooking">Cooking & heating</button>
+          <button class="filter-btn px-4 py-2 rounded-full text-sm font-bold border" data-filter="stainless">Stainless steel</button>
+          <button class="filter-btn px-4 py-2 rounded-full text-sm font-bold border" data-filter="storage">Cooling & storage</button>
+        </div>
+        <div id="product-grid" class="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+          <!-- Product cards are rendered from the catalogue below. -->
+        </div>
+        <div class="mt-12 rounded-2xl bg-slate-50 border border-slate-200 p-6 sm:p-8 flex flex-col md:flex-row md:items-center justify-between gap-5">
+          <div><p class="font-display text-xl font-extrabold text-ink">Need equipment made to your measurements?</p><p class="text-slate-500 text-sm mt-1">Talk to us about custom stainless steel fabrication for your kitchen.</p></div>
+          <a href="https://wa.me/254720781446?text=Hello%20Kaelly%2C%20I%20need%20a%20quote%20for%20custom%20stainless%20steel%20fabrication." target="_blank" rel="noopener" class="shrink-0 bg-ink hover:bg-slate-700 text-white font-bold px-6 py-3.5 rounded-xl transition">Discuss a custom project <i class="fa-solid fa-arrow-right ml-2 text-amberx"></i></a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Why us -->
+    <section id="why-us" class="bg-ink py-20">
+      <div class="max-w-7xl mx-auto px-5 lg:px-8">
+        <div class="max-w-2xl mb-12">
+          <p class="text-amberx font-extrabold uppercase tracking-[.2em] text-xs mb-3">The Kaelly advantage</p>
+          <h2 class="font-display text-3xl sm:text-4xl text-white font-extrabold">The right equipment makes <span class="text-amberx">all the difference.</span></h2>
+          <p class="text-slate-300 mt-4 leading-7">Practical kitchen solutions that support smooth service, reliable performance and a professional workspace.</p>
+        </div>
+        <div class="grid md:grid-cols-3 gap-5">
+          <div class="glass rounded-2xl p-7">
+            <div class="w-14 h-14 rounded-2xl bg-amberx text-ink flex items-center justify-center text-2xl mb-6"><i class="fa-solid fa-shield-halved"></i></div>
+            <h3 class="font-display text-xl font-extrabold text-white">Heavy-Duty Stainless Steel</h3>
+            <p class="text-slate-300 leading-7 mt-3 text-sm">Hard-wearing stainless steel equipment designed for demanding commercial kitchen environments and everyday cleaning.</p>
+          </div>
+          <div class="glass rounded-2xl p-7">
+            <div class="w-14 h-14 rounded-2xl bg-amberx text-ink flex items-center justify-center text-2xl mb-6"><i class="fa-solid fa-tags"></i></div>
+            <h3 class="font-display text-xl font-extrabold text-white">Affordable Factory-Direct Prices</h3>
+            <p class="text-slate-300 leading-7 mt-3 text-sm">Get in touch for a clear quote based on the equipment, specifications and fabrication requirements you need.</p>
+          </div>
+          <div class="glass rounded-2xl p-7">
+            <div class="w-14 h-14 rounded-2xl bg-amberx text-ink flex items-center justify-center text-2xl mb-6"><i class="fa-solid fa-truck-fast"></i></div>
+            <h3 class="font-display text-xl font-extrabold text-white">Fast Countrywide Delivery</h3>
+            <p class="text-slate-300 leading-7 mt-3 text-sm">Ask about delivery arrangements to Nairobi, Mombasa, Kisumu, Kericho and other towns across Kenya.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Process CTA -->
+    <section class="py-16 bg-amberx">
+      <div class="max-w-7xl mx-auto px-5 lg:px-8 flex flex-col md:flex-row md:items-center justify-between gap-6">
+        <div><p class="text-ink/70 uppercase tracking-[.2em] text-xs font-extrabold">Let's get your kitchen ready</p><h2 class="font-display text-2xl sm:text-3xl font-extrabold text-ink mt-2">Tell us what your kitchen needs.</h2><p class="text-ink/75 mt-2">Share your equipment list and destination. We'll help you take the next step.</p></div>
+        <a href="#quick-quote" class="inline-flex items-center justify-center gap-3 bg-ink hover:bg-slate-800 text-white font-extrabold px-7 py-4 rounded-xl transition">Get a quick quote <i class="fa-solid fa-arrow-right text-amberx"></i></a>
+      </div>
+    </section>
+
+    <!-- Location, hours and quote -->
+    <section id="hours-location" class="py-20 lg:py-24 bg-slate-50">
+      <div class="max-w-7xl mx-auto px-5 lg:px-8">
+        <div class="max-w-2xl mb-11">
+          <p class="text-amber-700 font-extrabold uppercase tracking-[.2em] text-xs mb-3">Visit or contact us</p>
+          <h2 class="font-display text-3xl sm:text-4xl font-extrabold text-ink">Let's talk about <span class="text-amber-600">your kitchen.</span></h2>
+          <p class="text-slate-500 mt-4 leading-7">Reach our team for product information, custom fabrication enquiries and delivery arrangements.</p>
+        </div>
+        <div class="grid lg:grid-cols-2 gap-8 items-start">
+          <div class="space-y-5">
+            <div class="bg-white border border-slate-200 rounded-2xl p-6 sm:p-7 shadow-sm">
+              <div class="flex items-center gap-3 mb-5"><span class="w-11 h-11 bg-amber-100 text-amber-700 rounded-xl flex items-center justify-center"><i class="fa-solid fa-clock"></i></span><div><h3 class="font-display font-extrabold text-xl text-ink">Operating hours</h3><p class="text-xs text-slate-500">Plan your visit to Kaelly Kitchen Appliances</p></div></div>
+              <div class="divide-y divide-slate-100 text-sm" id="hours-list">
+                <div class="flex justify-between py-3"><span class="text-slate-600">Monday</span><strong>7:00 AM – 8:30 PM</strong></div>
+                <div class="flex justify-between py-3"><span class="text-slate-600">Tuesday – Wednesday</span><strong>7:30 AM – 8:00 PM</strong></div>
+                <div class="flex justify-between py-3"><span class="text-slate-600">Thursday</span><strong>7:30 AM – 9:00 PM</strong></div>
+                <div class="flex justify-between py-3"><span class="text-slate-600">Friday</span><strong>8:30 AM – 8:30 PM</strong></div>
+                <div class="flex justify-between py-3"><span class="text-slate-600">Saturday</span><strong>8:30 AM – 6:30 PM</strong></div>
+                <div class="flex justify-between py-3"><span class="text-slate-600">Sunday</span><strong class="text-rose-600">Closed</strong></div>
+              </div>
+            </div>
+            <div class="bg-white border border-slate-200 rounded-2xl p-6 sm:p-7 shadow-sm">
+              <div class="flex items-start gap-4">
+                <span class="w-11 h-11 shrink-0 bg-slate-100 text-ink rounded-xl flex items-center justify-center"><i class="fa-solid fa-location-dot"></i></span>
+                <div><h3 class="font-display font-extrabold text-lg text-ink">Find us</h3><p class="text-slate-600 mt-1">Landhies Road, Nairobi, Kenya</p><a href="https://www.google.com/maps/search/?api=1&query=Landhies+Road%2C+Nairobi%2C+Kenya" target="_blank" rel="noopener" class="inline-flex mt-3 text-amber-700 font-bold text-sm hover:text-amber-800">Open directions <i class="fa-solid fa-arrow-up-right-from-square ml-2 text-xs"></i></a></div>
+              </div>
+              <div class="border-t border-slate-100 mt-5 pt-5 flex items-center gap-4">
+                <span class="w-11 h-11 shrink-0 bg-slate-100 text-ink rounded-xl flex items-center justify-center"><i class="fa-solid fa-phone"></i></span>
+                <div><p class="text-xs text-slate-500">Call or WhatsApp</p><a href="tel:+254720781446" class="font-extrabold text-ink hover:text-amber-700">+254 720 781 446</a></div>
+              </div>
+              <div class="border-t border-slate-100 mt-5 pt-5">
+                <p class="text-xs uppercase tracking-widest text-slate-500 font-extrabold mb-3">Connect with us</p>
+                <div class="flex gap-3">
+                  <a aria-label="TikTok" href="https://tiktok.com" target="_blank" rel="noopener" class="w-10 h-10 rounded-full bg-slate-100 hover:bg-ink hover:text-white flex items-center justify-center transition"><i class="fa-brands fa-tiktok"></i></a>
+                  <a aria-label="Instagram" href="https://instagram.com" target="_blank" rel="noopener" class="w-10 h-10 rounded-full bg-slate-100 hover:bg-ink hover:text-white flex items-center justify-center transition"><i class="fa-brands fa-instagram"></i></a>
+                  <a aria-label="Facebook" href="https://facebook.com" target="_blank" rel="noopener" class="w-10 h-10 rounded-full bg-slate-100 hover:bg-ink hover:text-white flex items-center justify-center transition"><i class="fa-brands fa-facebook-f"></i></a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div id="quick-quote" class="bg-white border border-slate-200 rounded-2xl p-6 sm:p-8 shadow-soft">
+            <div class="flex items-center gap-3 mb-2"><span class="w-11 h-11 bg-green-100 text-green-700 rounded-xl flex items-center justify-center text-xl"><i class="fa-brands fa-whatsapp"></i></span><h3 class="font-display text-2xl font-extrabold text-ink">Quick Quote</h3></div>
+            <p class="text-slate-500 text-sm leading-6 mb-7">Fill in a few details and your enquiry will be prepared in WhatsApp. No payment is made through this form.</p>
+            <form id="quote-form" class="space-y-5">
+              <div><label for="customer-name" class="block text-sm font-bold text-slate-700 mb-2">Your name</label><input id="customer-name" name="name" required maxlength="80" autocomplete="name" placeholder="e.g. Jane Wanjiku" class="w-full rounded-xl border border-slate-300 px-4 py-3.5 outline-none focus:border-amber-500 focus:ring-4 focus:ring-amber-100 transition"></div>
+              <div><label for="equipment-needed" class="block text-sm font-bold text-slate-700 mb-2">Equipment or service needed</label><textarea id="equipment-needed" name="equipment" required rows="4" maxlength="600" placeholder="Tell us the equipment, quantity or specifications..." class="w-full rounded-xl border border-slate-300 px-4 py-3.5 outline-none focus:border-amber-500 focus:ring-4 focus:ring-amber-100 transition resize-y"></textarea></div>
+              <div><label for="customer-town" class="block text-sm font-bold text-slate-700 mb-2">Town / delivery location</label><input id="customer-town" name="town" required maxlength="80" placeholder="e.g. Nairobi, Kisumu, Mombasa..." class="w-full rounded-xl border border-slate-300 px-4 py-3.5 outline-none focus:border-amber-500 focus:ring-4 focus:ring-amber-100 transition"></div>
+              <button type="submit" class="w-full bg-whatsapp hover:bg-green-600 text-white font-extrabold py-4 rounded-xl transition shadow-lg shadow-green-100 flex items-center justify-center gap-3"><i class="fa-brands fa-whatsapp text-xl"></i> Send quote request on WhatsApp</button>
+              <p class="text-[11px] text-slate-400 text-center"><i class="fa-solid fa-lock mr-1"></i>Your details are placed into a WhatsApp message for you to send.</p>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="bg-slate-950 text-slate-300">
+    <div class="max-w-7xl mx-auto px-5 lg:px-8 py-14 grid sm:grid-cols-2 lg:grid-cols-4 gap-10">
+      <div class="lg:col-span-2">
+        <a href="#home" class="inline-flex items-center gap-3 mb-5">
+          <span class="w-11 h-11 rounded-xl bg-amberx text-ink flex items-center justify-center text-xl"><i class="fa-solid fa-fire-burner"></i></span>
+          <span><span class="block font-display text-white font-extrabold text-lg">KAELLY KITCHEN</span><span class="block uppercase tracking-[.18em] text-[9px] text-slate-400 font-bold">Appliances & Fabrication</span></span>
+        </a>
+        <p class="max-w-md text-sm leading-7 text-slate-400">Quality Commercial Kitchen Equipment & Stainless Steel Fabrication. Helping restaurants, hotels, hospitals and caterers build kitchens that work.</p>
+      </div>
+      <div><h3 class="text-white font-extrabold mb-5">Explore</h3><ul class="space-y-3 text-sm"><li><a href="#equipment" class="hover:text-amberx">Our equipment</a></li><li><a href="#why-us" class="hover:text-amberx">Why choose us</a></li><li><a href="#hours-location" class="hover:text-amberx">Hours & location</a></li><li><a href="#quick-quote" class="hover:text-amberx">Request a quote</a></li></ul></div>
+      <div><h3 class="text-white font-extrabold mb-5">Contact</h3><ul class="space-y-3 text-sm text-slate-400"><li><i class="fa-solid fa-location-dot text-amberx mr-2"></i>Landhies Road, Nairobi</li><li><a href="tel:+254720781446" class="hover:text-white"><i class="fa-solid fa-phone text-amberx mr-2"></i>+254 720 781 446</a></li><li><a href="https://wa.me/254720781446" target="_blank" rel="noopener" class="hover:text-white"><i class="fa-brands fa-whatsapp text-amberx mr-2"></i>Chat on WhatsApp</a></li></ul></div>
+    </div>
+    <div class="border-t border-white/10"><div class="max-w-7xl mx-auto px-5 lg:px-8 py-5 flex flex-col sm:flex-row justify-between gap-3 text-xs text-slate-500"><p>© <span id="year"></span> Kaelly Kitchen Appliances. All rights reserved.</p><p>Quality equipment. Practical kitchen solutions.</p></div></div>
+  </footer>
+
+  <!-- Floating WhatsApp -->
+  <a href="https://wa.me/254720781446?text=Hello%20Kaelly%20Kitchen%20Appliances%2C%20I%20have%20an%20enquiry." target="_blank" rel="noopener" aria-label="Chat with Kaelly Kitchen Appliances on WhatsApp" class="fixed bottom-5 right-5 z-40 w-14 h-14 sm:w-16 sm:h-16 rounded-full bg-whatsapp hover:bg-green-600 text-white flex items-center justify-center text-3xl shadow-2xl shadow-green-900/30 transition hover:scale-105">
+    <i class="fa-brands fa-whatsapp"></i>
+  </a>
+
+  <!-- Product detail modal -->
+  <div id="product-modal" class="hidden fixed inset-0 z-50 modal-backdrop p-4 items-center justify-center" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+    <div class="bg-white w-full max-w-2xl max-h-[92vh] overflow-y-auto rounded-2xl shadow-2xl relative">
+      <button onclick="closeProductModal()" class="absolute top-4 right-4 z-10 w-10 h-10 rounded-full bg-white/90 hover:bg-slate-100 text-ink shadow flex items-center justify-center" aria-label="Close details"><i class="fa-solid fa-xmark"></i></button>
+      <div class="h-64 sm:h-80 bg-slate-100 overflow-hidden"><img id="modal-image" src="" alt="" class="w-full h-full object-cover"></div>
+      <div class="p-6 sm:p-8">
+        <p id="modal-category" class="text-xs uppercase tracking-[.18em] font-extrabold text-amber-700"></p>
+        <h3 id="modal-title" class="font-display text-2xl sm:text-3xl font-extrabold text-ink mt-2"></h3>
+        <p id="modal-description" class="text-slate-600 leading-7 mt-4"></p>
+        <div class="mt-5 flex items-center justify-between gap-3 flex-wrap"><span class="text-sm font-bold text-slate-500">Pricing</span><strong id="modal-price" class="text-amber-700"></strong></div>
+        <div class="mt-7 flex flex-col sm:flex-row gap-3">
+          <button id="modal-add" class="flex-1 bg-ink hover:bg-slate-700 text-white font-extrabold py-3.5 rounded-xl transition"><i class="fa-solid fa-cart-plus mr-2 text-amberx"></i>Add to enquiry cart</button>
+          <button id="modal-whatsapp" class="flex-1 bg-whatsapp hover:bg-green-600 text-white font-extrabold py-3.5 rounded-xl transition"><i class="fa-brands fa-whatsapp mr-2"></i>Ask on WhatsApp</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Enquiry cart drawer -->
+  <div id="cart-backdrop" class="hidden fixed inset-0 z-50 bg-slate-950/60" onclick="closeCart()"></div>
+  <aside id="cart-drawer" class="fixed top-0 right-0 z-[60] h-full w-full max-w-md bg-white shadow-2xl translate-x-full transition-transform duration-300 flex flex-col" aria-label="Enquiry cart" aria-hidden="true">
+    <div class="p-5 border-b border-slate-200 flex items-center justify-between"><div><p class="text-xs uppercase tracking-widest text-amber-700 font-extrabold">Your selection</p><h3 class="font-display text-2xl font-extrabold text-ink">Enquiry cart</h3></div><button onclick="closeCart()" class="w-10 h-10 rounded-full bg-slate-100 hover:bg-slate-200" aria-label="Close cart"><i class="fa-solid fa-xmark"></i></button></div>
+    <div id="cart-items" class="flex-1 overflow-y-auto p-5 space-y-4"><p class="text-slate-500 text-sm">Your cart is empty. Add equipment to build an enquiry.</p></div>
+    <div class="border-t border-slate-200 p-5"><p class="text-xs text-slate-500 mb-3">No online payment. Send your selected items to Kaelly for pricing and availability.</p><button onclick="sendCartWhatsApp()" class="w-full bg-whatsapp hover:bg-green-600 text-white font-extrabold py-4 rounded-xl"><i class="fa-brands fa-whatsapp mr-2 text-lg"></i>Send enquiry on WhatsApp</button></div>
+  </aside>
+  <div id="toast" class="hidden fixed bottom-24 left-1/2 -translate-x-1/2 z-[70] bg-ink text-white text-sm font-semibold px-5 py-3 rounded-xl shadow-xl toast" role="status"></div>
+
+  <script>
+    const WHATSAPP_NUMBER = '254720781446';
+    // Product photos are expected beside index.html (no image subfolder).
+    const products = [
+      {id:1,name:'Chips cutter',image:'kaelly1.jpg',category:'cooking',label:'Food preparation',price:'Price on request',description:'A practical food-preparation tool for cutting potatoes into consistent chips. Ask us about available sizes, build and suitability for your operation.'},
+      {id:2,name:'8ft hood complete',image:'kaelly2.jpg',category:'stainless',label:'Kitchen ventilation',price:'Price on request',description:'A commercial extraction hood solution for busy cooking lines. Enquire about dimensions, stainless finish and installation requirements.'},
+      {id:3,name:'Fast food display brand new',image:'kaelly3.jpg',category:'cooking',label:'Food display',price:'Price on request',description:'Present ready-to-serve food neatly and professionally. Contact us for display configuration, dimensions and current availability.'},
+      {id:4,name:'Serving trolly brand new',image:'kaelly4.jpg',category:'stainless',label:'Food service',price:'Price on request',description:'A mobile serving trolley designed to support organised food service and movement around commercial kitchens or service areas.'},
+      {id:5,name:'Stainless cooling',image:'kaelly5.jpg',category:'storage',label:'Cooling solution',price:'Price on request',description:'A stainless cooling solution for commercial food operations. Ask for the available specifications, capacity and configuration.'},
+      {id:6,name:'Stainless roster grill',image:'kaelly6.jpg',category:'cooking',label:'Grilling equipment',price:'Price on request',description:'A commercial stainless steel grilling unit for professional food preparation. Enquire about size, heat source and available options.'},
+      {id:7,name:'Stainless 2-burner cooker',image:'kaelly7.jpg',category:'cooking',label:'Compact cooking',price:'Price on request',description:'A compact two-burner stainless steel cooker suited to kitchens that need a practical cooking station without taking up too much space.'},
+      {id:8,name:'Stainless 4-burner cooker',image:'kaelly8.jpg',category:'cooking',label:'Commercial cooking',price:'Price on request',description:'A four-burner stainless steel cooker designed to support multiple cooking tasks during busy service. Ask about dimensions and burner specifications.'},
+      {id:9,name:'Stainless island 5ft',image:'kaelly9.jpg',category:'stainless',label:'Kitchen work island',price:'Price on request',description:'A five-foot stainless steel island that can provide a central preparation or working surface. Confirm layout and customisation options with our team.'},
+      {id:10,name:'Stainless double sink',image:'kaelly10.jpg',category:'stainless',label:'Washing station',price:'Price on request',description:'A double-bowl stainless steel sink for practical washing and rinsing workflows. Enquire about dimensions, bowl depth and drainage configuration.'},
+      {id:11,name:'Stainless kitchen cabinet',image:'kaelly11.jpg',category:'stainless',label:'Kitchen storage',price:'Price on request',description:'A stainless steel storage cabinet that helps keep kitchen tools and supplies organised. Custom sizing may be discussed when requesting a quote.'},
+      {id:12,name:'Meat chiller 4ft',image:'kaelly12.jpg',category:'storage',label:'Cold storage',price:'Price on request',description:'A four-foot meat chiller for commercial cold-storage needs. Ask us to confirm capacity, cooling specifications and availability.'},
+      {id:13,name:'Food warmer',image:'kaelly13.jpg',category:'cooking',label:'Food holding',price:'Price on request',description:'A food-warming unit to help keep prepared dishes ready for serving. Contact us for size, compartment and temperature-control details.'},
+      {id:14,name:'Stainless combine jiko',image:'kaelly14.jpg',category:'cooking',label:'Multi-purpose cooker',price:'Price on request',description:'A stainless steel combined jiko solution for commercial kitchen use. Enquire about dimensions, fuel configuration and fabrication details.'}
+    ];
+    let cart = [];
+    let activeProduct = null;
+
+    function escapeHTML(value) {
+      return String(value).replace(/[&<>"']/g, ch => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[ch]));
+    }
+    function waLink(message) {
+      return `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`;
+    }
+    function productMessage(product) {
+      return `Hello Kaelly Kitchen Appliances, I would like to inquire about the price and availability for the ${product.name}. Please share the details.`;
+    }
+    function renderProducts(filter='all') {
+      const list = filter === 'all' ? products : products.filter(p => p.category === filter);
+      document.getElementById('product-grid').innerHTML = list.map(p => `
+        <article class="product-card group bg-white border border-slate-200 rounded-2xl overflow-hidden hover:shadow-soft hover:-translate-y-1 transition duration-300 flex flex-col">
+          <button class="relative block w-full h-56 bg-slate-100 overflow-hidden text-left" onclick="openProduct(${p.id})" aria-label="View details for ${escapeHTML(p.name)}">
+            <img src="${p.image}" alt="${escapeHTML(p.name)}" loading="lazy" class="product-image w-full h-full object-cover" onerror="this.style.display='none';this.parentElement.classList.add('image-fallback');this.parentElement.querySelector('.fallback-icon').classList.remove('hidden')">
+            <span class="fallback-icon hidden absolute inset-0 items-center justify-center text-slate-400 text-4xl"><i class="fa-solid fa-image"></i></span>
+            <span class="absolute top-4 left-4 bg-white/95 text-ink text-[10px] uppercase tracking-wider font-extrabold px-3 py-1.5 rounded-full">${escapeHTML(p.label)}</span>
+          </button>
+          <div class="p-5 flex flex-col flex-1">
+            <h3 class="font-display font-extrabold text-lg text-ink leading-snug">${escapeHTML(p.name)}</h3>
+            <p class="text-slate-500 text-sm leading-6 mt-2 flex-1">${escapeHTML(p.description.slice(0,105))}${p.description.length>105?'…':''}</p>
+            <div class="mt-4 pt-4 border-t border-slate-100 flex items-center justify-between gap-2"><span class="text-xs font-bold text-amber-700">${escapeHTML(p.price)}</span><button onclick="openProduct(${p.id})" class="text-xs font-extrabold text-ink hover:text-amber-700">View details <i class="fa-solid fa-arrow-right ml-1"></i></button></div>
+            <div class="grid grid-cols-2 gap-2 mt-4">
+              <button onclick="addToCart(${p.id})" class="rounded-lg border border-slate-300 hover:border-ink text-ink text-xs font-extrabold py-3 transition"><i class="fa-solid fa-cart-plus mr-1"></i> Add to cart</button>
+              <a href="${waLink(productMessage(p))}" target="_blank" rel="noopener" class="rounded-lg bg-whatsapp hover:bg-green-600 text-white text-xs font-extrabold py-3 text-center transition"><i class="fa-brands fa-whatsapp mr-1"></i> Inquire price</a>
+            </div>
+          </div>
+        </article>`).join('');
+    }
+    function openProduct(id) {
+      activeProduct = products.find(p => p.id === id);
+      if (!activeProduct) return;
+      document.getElementById('modal-image').src = activeProduct.image;
+      document.getElementById('modal-image').alt = activeProduct.name;
+      document.getElementById('modal-category').textContent = activeProduct.label;
+      document.getElementById('modal-title').textContent = activeProduct.name;
+      document.getElementById('modal-description').textContent = activeProduct.description;
+      document.getElementById('modal-price').textContent = activeProduct.price;
+      document.getElementById('modal-add').onclick = () => { addToCart(activeProduct.id); closeProductModal(); };
+      document.getElementById('modal-whatsapp').onclick = () => window.open(waLink(productMessage(activeProduct)), '_blank', 'noopener');
+      const modal = document.getElementById('product-modal');
+      modal.classList.remove('hidden'); modal.classList.add('flex'); document.body.classList.add('no-scroll');
+    }
+    function closeProductModal() {
+      const modal = document.getElementById('product-modal');
+      modal.classList.add('hidden'); modal.classList.remove('flex');
+      if (document.getElementById('cart-drawer').getAttribute('aria-hidden') !== 'false') document.body.classList.remove('no-scroll');
+    }
+    function addToCart(id) {
+      const item = cart.find(p => p.id === id);
+      if (item) item.qty += 1;
+      else cart.push({...products.find(p => p.id === id), qty:1});
+      updateCart(); showToast('Added to your enquiry cart');
+    }
+    function removeFromCart(id) { cart = cart.filter(p => p.id !== id); updateCart(); }
+    function changeQty(id, delta) {
+      const item = cart.find(p => p.id === id);
+      if (!item) return;
+      item.qty += delta;
+      if (item.qty <= 0) removeFromCart(id); else updateCart();
+    }
+    function updateCart() {
+      const count = cart.reduce((sum,p) => sum + p.qty, 0);
+      document.getElementById('cart-count').textContent = count;
+      document.getElementById('catalog-cart-count').textContent = count;
+      const container = document.getElementById('cart-items');
+      if (!cart.length) {
+        container.innerHTML = '<p class="text-slate-500 text-sm">Your cart is empty. Add equipment to build an enquiry.</p>';
+        return;
+      }
+      container.innerHTML = cart.map(p => `<div class="flex gap-3 border border-slate-200 rounded-xl p-3">
+        <img src="${p.image}" alt="" class="w-20 h-20 rounded-lg object-cover bg-slate-100" onerror="this.style.display='none'">
+        <div class="flex-1 min-w-0"><p class="font-extrabold text-sm text-ink">${escapeHTML(p.name)}</p><p class="text-xs text-amber-700 font-bold mt-1">${escapeHTML(p.price)}</p>
+        <div class="flex items-center gap-3 mt-3"><button onclick="changeQty(${p.id},-1)" class="w-7 h-7 rounded-full bg-slate-100">−</button><span class="text-sm font-bold">${p.qty}</span><button onclick="changeQty(${p.id},1)" class="w-7 h-7 rounded-full bg-slate-100">+</button><button onclick="removeFromCart(${p.id})" class="ml-auto text-xs text-rose-600 font-bold">Remove</button></div></div></div>`).join('');
+    }
+    function openCart() {
+      closeProductModal();
+      document.getElementById('cart-backdrop').classList.remove('hidden');
+      const drawer = document.getElementById('cart-drawer');
+      drawer.classList.remove('translate-x-full'); drawer.setAttribute('aria-hidden','false');
+      document.body.classList.add('no-scroll');
+    }
+    function closeCart() {
+      document.getElementById('cart-backdrop').classList.add('hidden');
+      const drawer = document.getElementById('cart-drawer');
+      drawer.classList.add('translate-x-full'); drawer.setAttribute('aria-hidden','true');
+      if (document.getElementById('product-modal').classList.contains('hidden')) document.body.classList.remove('no-scroll');
+    }
+    function sendCartWhatsApp() {
+      if (!cart.length) { showToast('Add at least one item to your cart first'); return; }
+      const lines = cart.map(p => `• ${p.name} — Quantity: ${p.qty}`).join('\n');
+      const message = `Hello Kaelly Kitchen Appliances,\nI would like a quote for the following equipment:\n${lines}\n\nPlease share the prices, specifications and availability.`;
+      window.open(waLink(message), '_blank', 'noopener');
+    }
+    function showToast(message) {
+      const toast = document.getElementById('toast');
+      toast.textContent = message; toast.classList.remove('hidden');
+      clearTimeout(window.toastTimer); window.toastTimer = setTimeout(() => toast.classList.add('hidden'), 2300);
+    }
+
+    // Mobile navigation
+    const menuToggle = document.getElementById('menu-toggle');
+    const mobileMenu = document.getElementById('mobile-menu');
+    menuToggle.addEventListener('click', () => {
+      const isOpen = !mobileMenu.classList.contains('hidden');
+      mobileMenu.classList.toggle('hidden');
+      menuToggle.setAttribute('aria-expanded', String(!isOpen));
+      menuToggle.innerHTML = isOpen ? '<i class="fa-solid fa-bars"></i>' : '<i class="fa-solid fa-xmark"></i>';
+    });
+    document.querySelectorAll('.mobile-link').forEach(link => link.addEventListener('click', () => {
+      mobileMenu.classList.add('hidden'); menuToggle.setAttribute('aria-expanded','false'); menuToggle.innerHTML='<i class="fa-solid fa-bars"></i>';
+    }));
+
+    // Quick quote -> WhatsApp
+    document.getElementById('quote-form').addEventListener('submit', event => {
+      event.preventDefault();
+      const name = document.getElementById('customer-name').value.trim();
+      const equipment = document.getElementById('equipment-needed').value.trim();
+      const town = document.getElementById('customer-town').value.trim();
+      if (!name || !equipment || !town) return;
+      const message = `Hello Kaelly Kitchen Appliances,\nMy name is ${name}.\nI am interested in: ${equipment}\nMy town / delivery location is: ${town}.\nPlease assist me with a quote.`;
+      window.open(waLink(message), '_blank', 'noopener');
+    });
+
+    // Catalog filters
+    document.querySelectorAll('.filter-btn').forEach(button => button.addEventListener('click', () => {
+      document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active-filter','bg-ink','text-white','border-ink'));
+      button.classList.add('active-filter','bg-ink','text-white','border-ink');
+      renderProducts(button.dataset.filter);
+    }));
+    document.getElementById('product-modal').addEventListener('click', event => { if (event.target.id === 'product-modal') closeProductModal(); });
+    document.addEventListener('keydown', event => { if (event.key === 'Escape') { closeProductModal(); closeCart(); } });
+    document.getElementById('year').textContent = new Date().getFullYear();
+    document.querySelector('.filter-btn[data-filter="all"]').classList.add('bg-ink','text-white','border-ink');
+    renderProducts();
+    updateCart();
+  </script>
+</body>
+</html>
